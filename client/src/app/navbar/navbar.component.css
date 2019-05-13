@@ -1,0 +1,13 @@
+ul{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+}
+
+.diff{
+  margin-right: 2em;  
+}
+
+.navbar{
+  background-color:black;
+}
