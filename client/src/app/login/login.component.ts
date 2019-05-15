@@ -1,5 +1,3 @@
-import { Headers } from '@angular/http';
-import { Headers } from '@angular/http';
 import { UserServiceService } from './../services/user-service.service';
 import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';

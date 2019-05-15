@@ -1,3 +1,4 @@
+import { LandingComponent } from './landing/landing.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NgModule } from '@angular/core';
@@ -6,8 +7,10 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [ 
   { path: 'login', component: LoginComponent},
-{ path: '', component: HomepageComponent },
-{ path: 'signup', component: SignupComponent }];
+  { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: 'signup', component: SignupComponent },
+  { path: 'landing', component: LandingComponent }
+];
 
 
 @NgModule({
