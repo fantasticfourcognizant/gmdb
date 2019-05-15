@@ -1,0 +1,8 @@
+<div class="landing" >
+    <div class="card" *ngFor="let movie of movies" style="width: 18rem;">
+        <img class="card-img-top" src={{movie.poster}} height="350px" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title" style="text-align: center">{{movie.title}}</h5>
+        </div>
+      </div>
+</div>

@@ -8,8 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchbarComponent } from './Searchbar/Searchbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HttpModule } from "@angular/http";
 import { HttpClientModule } from '@angular/common/http';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
    declarations: [
@@ -18,13 +18,13 @@ import { HttpClientModule } from '@angular/common/http';
       LoginComponent,
       HomepageComponent,
       SearchbarComponent,
-      NavbarComponent
+      NavbarComponent,
+      LandingComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       FormsModule,
-      HttpModule,
       HttpClientModule
    ],
    providers: [],

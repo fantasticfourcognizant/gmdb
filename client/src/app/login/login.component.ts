@@ -1,51 +1,38 @@
+import { Headers } from '@angular/http';
+import { Headers } from '@angular/http';
+import { UserServiceService } from './../services/user-service.service';
 import { Component } from '@angular/core';
-import { Http, Headers, RequestOptions } from "@angular/http";
-import { Router } from "@angular/router";
-import "rxjs/Rx";
- 
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import 'rxjs/Rx';
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
- 
+
     public input: any;
- 
-    constructor(private http: Http, private router: Router) {
+    errorMessage: string;
+    response: any;
+
+    constructor(private http: HttpClient, private router: Router, private userService: UserServiceService) {
         this.input = {
-            "email": "",
-            "password": ""
+            email: '',
+            password: ''
         };
     }
- 
+
     public login() {
-        if(this.input.email && this.input.password) {
-            let headers = new Headers({ "content-type": "application/json" });
-            let options = new RequestOptions({ headers: headers });
-            this.http.post("https://boiling-ocean-39055.herokuapp.com/login", JSON.stringify(this.input), options)
-                .map(result => JSON.stringify(result))
-                .subscribe(result => {
-                    this.router.navigate(["/"]);
-                });
+        if (this.input.email && this.input.password) {
+            this.userService.validateUser(this.input).subscribe(
+                response => {
+                    this.response = response;
+                    this.router.navigate(['/']);
+                },
+                error => this.errorMessage = error as any
+            );
         }
     }
- 
 }
-
-
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css']
-// })
-// export class LoginComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }
