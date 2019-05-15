@@ -11,8 +11,8 @@ import { UserServiceService } from '../services/user-service.service';
 })
 export class SignupComponent {
 
-    private input: any;
-    private confirmPassword: string;
+    input: any;
+    confirmPassword: string;
     errorMessage: string;
 
     constructor(private http: HttpClient, private router: Router, private userService: UserServiceService) {
