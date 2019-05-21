@@ -6,9 +6,9 @@ import { tap, catchError, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
+export class ReviewsService {
 
-  private loginAPI = 'https://apigatewayff.herokuapp.com/api/user/login';
+  private addReviewAPI = 'https://apigatewayff.herokuapp.com/api/review/addreview';
   private signUpAPI = 'https://apigatewayff.herokuapp.com/api/user/signup';
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -16,17 +16,11 @@ export class UserServiceService {
 
 constructor(private http: HttpClient) { }
 
-validateUser(loginObj): Observable<any> {
-    return this.http.post<any>(this.loginAPI, JSON.stringify(loginObj), this.httpOptions)
-    .pipe(
-        tap(data => console.log(data)),
-        catchError(this.handleError)
-    );
-}
 
 
-createUser(UserObj): Observable<any> {
-  return this.http.post<any>(this.signUpAPI, JSON.stringify(UserObj), this.httpOptions).pipe(
+
+public createReview(ReviewObj): Observable<any> {
+  return this.http.post<any>(this.addReviewAPI, JSON.stringify(ReviewObj), this.httpOptions).pipe(
       tap(data => console.log(JSON.stringify(data))),
       catchError(this.handleError)
   );

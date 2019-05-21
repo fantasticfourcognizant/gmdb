@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import 'rxjs/Rx';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-login',
@@ -10,21 +11,25 @@ import 'rxjs/Rx';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
-    public input: any;
+    loginForm: FormGroup;
     errorMessage: string;
     response: any;
 
-    constructor(private http: HttpClient, private router: Router, private userService: UserServiceService) {
-        this.input = {
-            email: '',
-            password: ''
-        };
-    }
+    constructor(private http: HttpClient, private router: Router, private userService: UserServiceService, private fb: FormBuilder) {}
 
+
+    ngOnInit(): void {
+
+        // initialize form value
+        this.loginForm = this.fb.group({
+          email: [''],
+          password: [''],
+        });
+      }
     public login() {
-        if (this.input.email && this.input.password) {
-            this.userService.validateUser(this.input).subscribe(
+        // console.log("submit", this.loginForm);
+        if (this.loginForm.value.email && this.loginForm.value.password) {
+            this.userService.validateUser(this.loginForm.value).subscribe(
                 response => {
                     this.response = response;
                     this.router.navigate(['/']);

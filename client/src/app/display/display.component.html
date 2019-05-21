@@ -1,0 +1,32 @@
+<div>
+
+<img src="{{state$[0].poster}}">
+<p>Actors :{{state$[0].actors}}</p>
+<p>Awards: {{state$[0].awards}}</p>
+<p>Box Office: {{state$[0].boxOffice}}</p>
+<p>Country: {{state$[0].country}}</p>
+<p>Director: {{state$[0].director}}</p>
+<p>DVD: {{state$[0].dvd}}</p>
+<p>Genre: {{state$[0].genre}}</p>
+<p>ImdbRating: {{state$[0].imdbRating}}</p>
+<p>ImdbId: {{state$[0].imdbid}}</p>
+<p>Language: {{state$[0].language}}</p>
+<p>MetaScore: {{state$[0].metascore}}</p>
+<p>Plot: {{state$[0].plot}}</p>
+<p>Production: {{state$[0].production}}</p>
+<p>Rated: {{state$[0].rated}}</p>
+<p>Released: {{state$[0].released}}</p>
+<p>Runtime: {{state$[0].runtime}}</p>
+<p>Title: {{state$[0].title}}</p>
+<p>Type: {{state$[0].type}}</p>
+<p>Website: {{state$[0].website}}</p>
+<p>Writer: {{state$[0].writer}}</p>
+<p>Year: {{state$[0].year}}</p>
+<div class="align-class">
+  <input type="text" [(ngModel)]="someTitle" name="review_title" id="title" placeholder="Title Name">
+  <textarea name="review" [(ngModel)]="someReview" id="review" cols="30" rows="10" placeholder="Add Review"></textarea>
+</div>
+<button type="submit" (click)="submitReview()" >Submit Review</button>
+
+
+</div>
