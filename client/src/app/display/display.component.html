@@ -23,8 +23,10 @@
 <p>Writer: {{state$[0].writer}}</p>
 <p>Year: {{state$[0].year}}</p>
 <div class="align-class">
-  <input type="text" [(ngModel)]="someTitle" name="review_title" id="title" placeholder="Title Name">
-  <textarea name="review" [(ngModel)]="someReview" id="review" cols="30" rows="10" placeholder="Add Review"></textarea>
+  <input type="text" [(ngModel)]="reviewTitle" name="review_title" id="title" placeholder="Title Name">
+  <textarea name="review" [(ngModel)]="reviewBody" id="review" cols="30" rows="10" placeholder="Add Review"></textarea>
+  <input type="text" [(ngModel)]="movieId" name="review_title" id="title" placeholder="Title Name">
+  <input type="text" [(ngModel)]="userId" name="review_title" id="title" placeholder="Title Name">
 </div>
 <button type="submit" (click)="submitReview()" >Submit Review</button>
 

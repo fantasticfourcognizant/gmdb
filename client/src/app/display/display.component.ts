@@ -40,6 +40,14 @@ export class DisplayComponent implements OnInit {
     this.state$ = this.activatedRoute.paramMap
       .pipe((() => window.history.state));
       console.log(this.state$);
+
+    this.input =
+       {
+        reviewBody: [''],
+        reviewTitle: [''],
+        movieId: [''],
+        userId: [''],
+      };
       
   }
 
