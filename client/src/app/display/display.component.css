@@ -3,3 +3,8 @@
     flex-direction: column;
     width: 20em;
 }
+.view {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10vw;
+}

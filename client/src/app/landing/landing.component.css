@@ -1,3 +1,29 @@
+.body {
+    background-image: url("https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/star-is-born-web.jpg");
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 15vh;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 2.5em;
+}
+
+.search {
+    width: 35vw;
+    margin-right: 1em;
+}
+
+.btn btn-primary {
+    padding-left: 1em;
+    width: 4em;
+}
+
+
 .landing {
     display: flex;
     flex-direction: row;
@@ -6,10 +32,13 @@
 }
 
 .searchBar{
-
-    margin-top: 6em;
-    text-align: center
-  
+    padding-top: 8vh;
+    padding-bottom: 6vh;
+    text-align: center;
+    background-color: currentColor;
+    border-radius: 1em;
   }
+
+  
 
   /* https://gmdb-ea5be.firebaseapp.com */

@@ -1,27 +1,23 @@
-<div class="landing" >
-    <div class="card" *ngFor="let movie of movies" style="width: 18rem;">
-        <img class="card-img-top" src={{movie.poster}} height="350px" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title" style="text-align: center">{{movie.title}}</h5>
-        </div>
+<div class="body">
+    <div class="searchBar container" >
+        <form class="form-group search-container">
+            <div class="form-group search" >
+                <input type="text" size="33%" (keyup)="updateSearch()" class="form-control" id="search" aria-describedby="emailHelp" [formControl]="name" placeholder="Search for movies">
+                <small id="emailHelp" class="form-text text-muted">Search by movie titles.</small>
+            </div>
+        </form>
+    </div>
+
+      <div class="container landing">
+          <div class="card" *ngFor="let movie of moviesResults" style="width: 18rem;">
+              <img class="card-img-top" src={{movie.poster}} height="350px" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align: center">
+                  <a routerLink='display' [state]="movie" routerLinkActive="router-link-active" routerLinkActive="router-link-active" >
+                    {{movie.title}}
+                  </a>
+                </h5>
+              </div>
+          </div>
       </div>
 </div>
-
-<div class="searchBar" >
-
-  <form class="form-group" (ngSubmit) = "onSubmit()">
-    <input type="text" size="33%" placeholder="find a movie.." [formControl]="name" >
-    <button type="submit" >Submit</button>
-  </form>
-  <div *ngIf="submitFlag">
-    <a routerLink='display' routerLinkActive="router-link-active" routerLinkActive="router-link-active" 
-     [state]="movie" > {{this.movie[0].title}}</a>
-    <img src="{{this.movie[0].poster}}">
-
-  </div>
-</div>
-<!-- <label>
-    Name:
-    <input type="text" [formControl]="name">
-  </label>
-  <button type="submit" (click)='clickme()' >Submit</button> -->

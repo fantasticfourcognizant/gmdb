@@ -11,7 +11,6 @@ import { SearchbarComponent } from './Searchbar/Searchbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LandingComponent } from './landing/landing.component';
-import { DisplayComponentComponent } from './DisplayComponent/DisplayComponent.component';
 import { DisplayComponent } from './display/display.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { DisplayComponent } from './display/display.component';
       SearchbarComponent,
       NavbarComponent,
       LandingComponent,
-      DisplayComponentComponent,
       DisplayComponent
    ],
    imports: [

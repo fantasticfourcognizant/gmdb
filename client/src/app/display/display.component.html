@@ -1,34 +1,66 @@
-<div>
+<div class="card-group">
 
-<img src="{{state$[0].poster}}">
-<p>Actors :{{state$[0].actors}}</p>
-<p>Awards: {{state$[0].awards}}</p>
-<p>Box Office: {{state$[0].boxOffice}}</p>
-<p>Country: {{state$[0].country}}</p>
-<p>Director: {{state$[0].director}}</p>
-<p>DVD: {{state$[0].dvd}}</p>
-<p>Genre: {{state$[0].genre}}</p>
-<p>ImdbRating: {{state$[0].imdbRating}}</p>
-<p>ImdbId: {{state$[0].imdbid}}</p>
-<p>Language: {{state$[0].language}}</p>
-<p>MetaScore: {{state$[0].metascore}}</p>
-<p>Plot: {{state$[0].plot}}</p>
-<p>Production: {{state$[0].production}}</p>
-<p>Rated: {{state$[0].rated}}</p>
-<p>Released: {{state$[0].released}}</p>
-<p>Runtime: {{state$[0].runtime}}</p>
-<p>Title: {{state$[0].title}}</p>
-<p>Type: {{state$[0].type}}</p>
-<p>Website: {{state$[0].website}}</p>
-<p>Writer: {{state$[0].writer}}</p>
-<p>Year: {{state$[0].year}}</p>
-<div class="align-class">
-  <input type="text" [(ngModel)]="reviewTitle" name="review_title" id="title" placeholder="Title Name">
-  <textarea name="review" [(ngModel)]="reviewBody" id="review" cols="30" rows="10" placeholder="Add Review"></textarea>
-  <input type="text" [(ngModel)]="movieId" name="review_title" id="title" placeholder="Title Name">
-  <input type="text" [(ngModel)]="userId" name="review_title" id="title" placeholder="Title Name">
+    <div class="card" style="width: 30rem;">
+        <img src="{{state$.poster}}" class="card-img-top">
+    </div>
+
+    <div class="card" style="width: 40rem;">
+        <h5 class="card-title" >
+          <li class="list-group-item list-group-item-warning" styles="text-align: center;">{{state$.title}}</li>
+        </h5>
+        <div class="card-body">
+            <li class="list-group-item list-group-item-info">Actors :{{state$.actors}}</li>
+            <li class="list-group-item list-group-item-info">Awards: {{state$.awards}}</li>
+              <li class="list-group-item list-group-item-info">Box Office: {{state$.boxOffice}}</li>
+                <li class="list-group-item list-group-item-info">Country: {{state$.country}}</li>
+                  <li class="list-group-item list-group-item-info">Director: {{state$.director}}</li>
+                    <li class="list-group-item list-group-item-info">DVD: {{state$.dvd}}</li>
+                      <li class="list-group-item list-group-item-info">Genre: {{state$.genre}}</li>
+                        <li class="list-group-item list-group-item-info">ImdbRating: {{state$.imdbRating}}</li>
+                        <li class="list-group-item list-group-item-info">ImdbId: {{state$.imdbid}}</li>
+                        <li class="list-group-item list-group-item-info">Language: {{state$.language}}</li>
+                          <li class="list-group-item list-group-item-info">MetaScore: {{state$.metascore}}</li>
+                            <li class="list-group-item list-group-item-info">Plot: {{state$.plot}}</li>
+                              <li class="list-group-item list-group-item-info">Production: {{state$.production}}</li>
+                                <li class="list-group-item list-group-item-info">Rated: {{state$.rated}}</li>
+                                  <li class="list-group-item list-group-item-info">Released: {{state$.released}}</li>
+                                    <li class="list-group-item list-group-item-info">Runtime: {{state$.runtime}}</li>
+                                      <li class="list-group-item list-group-item-info">Title: {{state$.title}}</li>
+                                        <li class="list-group-item list-group-item-info">Type: {{state$.type}}</li>
+                                          <li class="list-group-item list-group-item-info">Website: {{state$.website}}</li>
+                                            <li class="list-group-item list-group-item-info">Writer: {{state$.writer}}</li>
+                                              <li class="list-group-item list-group-item-info">Year: {{state$.year}}</li>
+        </div>
+    </div>
+
 </div>
-<button type="submit" (click)="submitReview()" >Submit Review</button>
 
-
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+        <li *ngFor="let r of review" class="list-group-item list-group-item-info">
+          {{r.reviewTitle}}
+          <ul>
+              <li class="list-group-item list-group-item-warning">{{r.reviewText}}</li>
+          </ul>
+        </li>
+    </div>
+  </div>
+    
+      <form [formGroup] = "input">
+          <div class="form-group">
+              <input class="form-control" formControlName="reviewTitle" placeholder="Title Name">
+          </div>
+          <div class="form-group">
+              <input class="form-control" formControlName="reviewText" placeholder="Add Review">
+            </div>
+            <div class="form-group">
+                <input class="form-control" formControlName="movieId" placeholder="Movie ID">
+              </div>
+              <div class="form-group">
+                  <input class="form-control" formControlName="userId" placeholder="User ID">
+                </div>
+           </form>
+      <button type="submit" (click)="submitReview()">Submit Review</button>
 </div>
+
